@@ -2,7 +2,7 @@ name: 파이썬 테스트
 
 on:
   push:
-    paths: "!.github"
+    paths: "isddcmd.py"
     branches: [ "Windows" ]
   pull_request:
     branches: [ "Windows" ]
