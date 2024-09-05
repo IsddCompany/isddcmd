@@ -65,10 +65,7 @@ def say(n: list):
             print(inp)
     return n
 
-
-while True:
-    if not is_automation:
+if not is_automation:
+    while True:
         input_text = input(input_arrow if show_input_arrow else "").split(" ")
-    else:
-        input_text = "say 'by_Jjoon'"
-    command_input(input_text)
+        command_input(input_text)
