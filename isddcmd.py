@@ -6,7 +6,7 @@ default_input_arrow = "Leurc(sID1) _>"
 input_arrow = default_input_arrow
 
 inittext = """
-ISDD cmd [Version 0.1.0.0]
+ISDD cmd [Version 0.1.0.1]
 (c) 1998 ISDD Company. All rights reserved.
 """
 if len(sys.argv) > 1:
