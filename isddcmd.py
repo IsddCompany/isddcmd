@@ -69,4 +69,6 @@ def say(n: list):
 while True:
     if not is_automation:
         input_text = input(input_arrow if show_input_arrow else "").split(" ")
+    else:
+        input_text = "say 'by_Jjoon'"
     command_input(input_text)
