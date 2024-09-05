@@ -1,4 +1,4 @@
-name: Python application
+name: 파이썬 테스트
 
 on:
   push:
