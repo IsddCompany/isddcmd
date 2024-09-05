@@ -1,4 +1,5 @@
 from os import system
+import sys
 
 show_input_arrow = True
 default_input_arrow = "Leurc(sID1) _>"
@@ -8,6 +9,11 @@ inittext = """
 ISDD cmd [Version 0.1.0.0]
 (c) 1998 ISDD Company. All rights reserved.
 """
+if len(sys.argv) > 1:
+    is_automation = True
+else:
+    is_automation = False
+
 
 system("title ISDD cmd")
 print(inittext)
@@ -61,6 +67,6 @@ def say(n: list):
 
 
 while True:
-
-    input_text = input(input_arrow if show_input_arrow else "").split(" ")
+    if not is_automation:
+        input_text = input(input_arrow if show_input_arrow else "").split(" ")
     command_input(input_text)
