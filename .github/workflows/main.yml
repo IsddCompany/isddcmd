@@ -27,5 +27,5 @@ jobs:
 
     - name: 파이썬 테스트
       run: |
-        python isddcmd.py
+        python isddcmd.py automated
       timeout-minutes: 1
