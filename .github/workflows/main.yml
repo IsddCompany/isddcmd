@@ -2,7 +2,7 @@ name: 파이썬 테스트
 
 on:
   push:
-    paths: "!.github/workflows/main.yml"
+    paths-ignore: ".github/workflows/main.yml"
     branches: [ "Windows" ]
   pull_request:
     branches: [ "Windows" ]
