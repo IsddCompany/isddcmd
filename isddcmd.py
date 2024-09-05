@@ -69,3 +69,5 @@ if not is_automation:
     while True:
         input_text = input(input_arrow if show_input_arrow else "").split(" ")
         command_input(input_text)
+else:
+    command_input("say byJjoon".split(" "))
