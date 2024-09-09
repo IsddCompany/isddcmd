@@ -29,4 +29,5 @@ jobs:
     - name: 파이썬 테스트
       run: |
         python isddcmd.py automated
+        python color.py
       timeout-minutes: 1
