@@ -1,5 +1,7 @@
 # ISDDCMD
 
+[![파이썬 테스트](https://github.com/IsddCompany/isddcmd/actions/workflows/main.yml/badge.svg?branch=Windows)](https://github.com/IsddCompany/isddcmd/actions/workflows/main.yml)
+
 ### 명령어 추가
 1. EXIT
 2. COLOR
