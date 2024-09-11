@@ -2,20 +2,26 @@ from os import system
 import sys
 import importlib
 
-show_input_arrow = True
-default_input_arrow = "Leurc(sID1) _>"
-input_arrow = default_input_arrow
-console_color = "0f"
-ERRORLV = 0
+def_color = "0f"
+console_color = def_color
+
+if __name__ == "__main__":
+    show_input_arrow = True
+    default_input_arrow = "Leurc(sID1) _>"
+    input_arrow = default_input_arrow
+
+    ERRORLV = 0
 
 inittext = """
-ISDD cmd [Version 1.0.0.0]
+ISDD cmd [Version 1.0.1.0]
 (c) 1998` ISDD Company. All rights reserved.
 """
 
 is_automation = len(sys.argv) > 1
 
 
+#TODO: def set():
+#       변수 세팅
 def command_input(input_: list):
     if input_[0] == "exit":
         exit()
@@ -65,6 +71,33 @@ def cmd(title: list):
 def isddcmd(*args):
     system("py isddcmd.py")
 
+def reload(outfile: list):
+    global ERRORLV
+    try:
+        importlib.reload(importlib.import_module(outfile[1]))
+    except ModuleNotFoundError:
+        print(f"{outfile}을(를) 찾을수 없습니다.")
+        ERRORLV = 1
+    except:
+        print(reload_help())
+        ERRORLV = 1
+
+def reload_help():
+    return """
+한번 불러온 외부파일은 다시 호출하면,
+파일 내용이 바뀌어도 실행되는 내용은 바뀌지 않습니다.
+이때 RELOAD를 사용하면 변경된 내용대로 ISDDCMD에 호출합니다.
+(내부 명령어는 바뀌지 않습니다.)
+
+RELOAD [OUTFILE]
+
+  OUTFILE      외부파일의 이름을 지정합니다.
+
+만약 OUTFILE이 외부파일이 아닐경우
+RELOAD 명령은 ERRORLV을 1로 설정합니다.
+    """
+
+
 
 def say(n: list):
     global input_arrow
@@ -99,11 +132,16 @@ def say(n: list):
 def say_help():
     return """
 메시지를 표시하거나 명령 줄을 설정하거나 켜거나 끕니다.
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+
 SAY [ON | OFF]
-SAY [message]
-SAY [INPSET] [input_arrow | DEFAULT]
-ㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡㅡ
+SAY [MESSAGE]
+SAY INPSET [INPUT_ARROW | DEFAULT]
+
+  ON | OFF      input_arrow가 보여지는지 여부를 정합니다.
+  MESSAGE       출력할 문자열입니다.
+  DEFAULT       input_arrow를 기본으로 (ISDDCMD가 실행되었을때)로 변경합니다.
+  INPUT_ARROW   input_arrow를 INPUT_ARROW로 할당합니다.
+
 input_arrow는 무조건 소문자로 바뀝니다.
 현재 명령줄 설정을 표시하려면 매개 변수 없이 SAY를 입력하십시오.
 """
@@ -117,10 +155,12 @@ SAY            메시지를 표시하거나 명령 줄을 설정하거나 켜거
 EXIT           ISDDCMD를 종료합니다.
 HELP           이 도움알을 표시합니다.
 COLOR          콘솔 색을 바꿉니다.
+RELOAD         외부 파일을 다시 불러옵니다.
     """
 
 
 if __name__ == "__main__":
+
     system("title ISDD cmd")
     print(inittext)
     if not is_automation:

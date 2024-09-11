@@ -39,6 +39,9 @@ def on_trigger(x__):
         if len(str(x__[1])) <= 1:
             main.ERRORLV = 1
             print(on_help())
+        elif x__[1] == 'def':
+            main.console_color = main.def_color
+            print(f"콘솔 색이 기본색인{main.def_color}로 설정되었습니다.")
         else:
             if str(x__[1])[0] == str(x__[1])[1]:
                 main.ERRORLV = 1
