@@ -9,7 +9,7 @@
 4. HELP
 ### 추가 해야 할것들
 
-- [ ]  RELOAD
+- [x]  RELOAD
 - [ ]  GETOTP
 - [ ]  SET
 - [ ]  SEARCH
