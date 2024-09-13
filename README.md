@@ -1,5 +1,6 @@
 # ISDDCMD
 
+릴리즈 버전: v1.0.1.0
 [![파이썬 테스트](https://github.com/IsddCompany/isddcmd/actions/workflows/main.yml/badge.svg?branch=Windows)](https://github.com/IsddCompany/isddcmd/actions/workflows/main.yml)
 
 ### 명령어 추가
