@@ -9,8 +9,9 @@
 4. HELP
 ### 추가 해야 할것들
 
+- [ ]  RELOAD
 - [ ]  GETOTP
-
-- [ ] SEARCH
+- [ ]  SET
+- [ ]  SEARCH
 
 > 더욱 많은 기능들은 WIKI를 참고해주시기 바랍니다.
