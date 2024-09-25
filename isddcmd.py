@@ -19,9 +19,6 @@ ISDD cmd [Version 1.0.1.0]
 
 is_automation = len(sys.argv) > 1
 
-
-# TODO: def set():
-#       변수 세팅
 def command_input(input_: list):
     if input_[0] == "exit":
         exit()
@@ -79,7 +76,7 @@ def reload(outfile: list):
     except ModuleNotFoundError:
         print(f"{outfile}을(를) 찾을수 없습니다.")
         ERRORLV = 1
-    except:
+    except not ModuleNotFoundError:
         print(reload_help())
         ERRORLV = 1
 
@@ -183,4 +180,3 @@ if __name__ == "__main__":
 
     else:
         command_input("say byJjoon".split(" "))
-
