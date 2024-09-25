@@ -20,7 +20,7 @@ ISDD cmd [Version 1.0.1.0]
 is_automation = len(sys.argv) > 1
 
 
-#TODO: def set():
+# TODO: def set():
 #       변수 세팅
 def command_input(input_: list):
     if input_[0] == "exit":
@@ -30,7 +30,7 @@ def command_input(input_: list):
     else:
         try:
             if len(input_) > 1:
-                if input_[1] == "/?":
+                if input_[1] == "-?":
                     try:
                         exec(f"print({input_[0]}_help())")
                     except NameError:
@@ -71,6 +71,7 @@ def cmd(title: list):
 def isddcmd(*args):
     system("py isddcmd.py")
 
+
 def reload(outfile: list):
     global ERRORLV
     try:
@@ -81,6 +82,7 @@ def reload(outfile: list):
     except:
         print(reload_help())
         ERRORLV = 1
+
 
 def reload_help():
     return """
@@ -96,7 +98,6 @@ RELOAD [OUTFILE]
 만약 OUTFILE이 외부파일이 아닐경우
 RELOAD 명령은 ERRORLV을 1로 설정합니다.
     """
-
 
 
 def say(n: list):
@@ -149,7 +150,7 @@ input_arrow는 무조건 소문자로 바뀝니다.
 
 def cmd_help():
     return """
-특정 명령어에 대한 자세한 내용이 필요하면 명령어 뒤에 /?를 입력하세요.
+특정 명령어에 대한 자세한 내용이 필요하면 명령어 뒤에 -?를 입력하세요.
 
 SAY            메시지를 표시하거나 명령 줄을 설정하거나 켜거나 끕니다.
 EXIT           ISDDCMD를 종료합니다.
@@ -182,3 +183,4 @@ if __name__ == "__main__":
 
     else:
         command_input("say byJjoon".split(" "))
+
